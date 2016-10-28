@@ -21,13 +21,16 @@ To run this node server just run:
 $ npm start
 ```
 
-## In this version (v0.0.0)
+## In this version (v1.0.0)
 
-I have completed the tutorial on Scotch.io and created a small RESTful API that i have interacted with using POSTMAN.
+I have taken what I learned from the tutorial on Scotch.io and added the models I want for this project and set up routes to access the data. Each route can GET all, GET by id, create(POST), update(PUT) and DELETE the data from the models I have added.
 
 ## Plans for the next iteration
 
-In the next iteration of this project I plan to add more models for the data base and new routes.
+In the next iteration of this project I plan to:
+* view data from the database in the browser
+* add data to the database in the browser
+* edit data in the database in the browser
 
 ## Technologies
 

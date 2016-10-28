@@ -1,7 +1,7 @@
 {
   "name": "TickList",
   "description": "This is a web application to act as a online tick list for rock climbers where they can add and edit rock climbing routes and problems from within the application.",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "main": "server.js",
   "dependencies": {
     "express": "~4.0.0",
