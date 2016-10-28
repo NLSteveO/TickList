@@ -10,7 +10,6 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://ticklistAdmin:ticklist@ds053126.mlab.com:53126/ticklist');
 
-var Climb = require('./app/models/climb');
 // call the routes we want
 var Country = require('./app/routes/countryRouter');
 var Province = require('./app/routes/provinceRouter');
@@ -43,99 +42,7 @@ router.get('/', function(req, res) {
   res.json({ message: 'hooray! welcome to our api!' });
 });
 
-// more routes for our API will happen here
-
-// on routes that end in /climbs
-// ----------------------------------------------------
-router.route('/climbs')
-
-  // create a climb (accessed at POST http://localhost:4000/api/climbs)
-  .post(function(req, res) {
-    var climb = new Climb();      // create a new instance of the Climb model
-    climb.name = req.body.name;   // set the climbs name (comes from the request body)
-
-    // save the climb and check for errors
-    climb.save(function(err) {
-      if (err) {
-        res.send(err);
-        return err;
-      }
-
-      res.json({ message: 'Climb created!' });
-    });
-
-  })
-
-  // get all the climbs (accessed at GET http://localhost:4000/api/climbs)
-  .get(function(req, res) {
-    Climb.find(function(err, climbs) {
-      if (err) {
-        res.send(err);
-        return err;
-      }
-
-      res.json(climbs);
-    });
-
-  });
-
-// on routes that end in /climbs/:climb_id
-// ----------------------------------------------------
-router.route('/climbs/:climb_id')
-
-  // get the climb with that id (accessed at GET http://localhost:4000/api/climbs/:climb_id)
-  .get(function(req, res) {
-    Climb.findById(req.params.climb_id, function(err, climb) {
-      if (err) {
-        res.sent(err);
-        return err;
-      }
-
-      res.json(climb);
-    });
-  })
-
-  // update the climb with this id (accessed at PUT http://localhost:4000/api/climbs/:climb_id)
-  .put(function(req, res) {
-
-    // use our climb model to find the climb we want
-    Climb.findById(req.params.climb_id, function(err, climb) {
-      if (err) {
-        res.send(err);
-        return err;
-      }
-
-      climb.name = req.body.name;   // update the climbs info
-
-      // save the climb
-      climb.save(function(err) {
-        if (err) {
-          res.send(err);
-          return err;
-        }
-
-        res.json({ message: 'Climb updated!' });
-      });
-    });
-  })
-
-  // delete the climb with this id (accessed at DELETE http://localhost:4000/api/climbs/:climb_id)
-  .delete(function(req, res) {
-
-    Climb.remove({
-      _id: req.params.climb_id
-    }, function(err, climb) {
-      if (err) {
-        res.send(err);
-        return err;
-      }
-
-      res.json({ message: 'Successfully deleted!' });
-    });
-  });
-
 // REGISTER OUR ROUTES -------------------------------
-// all of our routes will be prefixed with /api
 app.use('/api', router);
 app.use('/country', Country);
 app.use('/province', Province);
