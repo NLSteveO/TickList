@@ -11,6 +11,14 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://ticklistAdmin:ticklist@ds053126.mlab.com:53126/ticklist');
 
 var Climb = require('./app/models/climb');
+// call the routes we want
+var Country = require('./app/routes/countryRouter');
+var Province = require('./app/routes/provinceRouter');
+var Community = require('./app/routes/communityRouter');
+var Crag = require('./app/routes/cragRouter');
+var Gym = require('./app/routes/gymRouter');
+var ClimbingRoute = require('./app/routes/climbingRouteRouter');
+var ClimbingProblem = require('./app/routes/climbingProblemRouter');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -129,6 +137,13 @@ router.route('/climbs/:climb_id')
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
 app.use('/api', router);
+app.use('/country', Country);
+app.use('/province', Province);
+app.use('/community', Community);
+app.use('/crag', Crag);
+app.use('/gym', Gym);
+app.use('/route', ClimbingRoute);
+app.use('/problem', ClimbingProblem);
 
 // START THE SERVER
 // =============================================================================
