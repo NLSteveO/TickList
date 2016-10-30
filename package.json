@@ -4,9 +4,10 @@
   "version": "1.0.0",
   "main": "server.js",
   "dependencies": {
+    "body-parser": "~1.0.1",
     "express": "~4.0.0",
     "mongoose": "~4.6.3",
-    "body-parser": "~1.0.1"
+    "pug": "^2.0.0-beta6"
   },
   "license": "MIT"
 }

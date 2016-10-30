@@ -14,7 +14,7 @@ router.route('/')
         res.send(err);
         return err;
       }
-      res.json(gyms);
+      res.render('index', { title: 'Gym List', list: gyms });
     });
   })
 

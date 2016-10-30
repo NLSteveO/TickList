@@ -14,7 +14,7 @@ router.route('/')
         res.send(err);
         return err;
       }
-      res.json(communities);
+      res.render('index', { title: 'Community List', list: communities });
     });
   })
 

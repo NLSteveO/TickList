@@ -23,6 +23,8 @@ var ClimbingProblem = require('./app/routes/climbingProblemRouter');
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.set('views', './app/views');
+app.set('view engine', 'pug');
 
 var port = process.env.PORT || 4000;	// set our port
 
@@ -39,7 +41,7 @@ router.use(function(req, res, next) {
 
 // test route to make sure everything is working (accessed at GET http://localhost:4000/api)
 router.get('/', function(req, res) {
-  res.json({ message: 'hooray! welcome to our api!' });
+  res.render('index', { title: 'Welcome', message: 'hooray! welcome to our api!' });
 });
 
 // REGISTER OUR ROUTES -------------------------------

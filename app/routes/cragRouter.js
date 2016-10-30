@@ -14,7 +14,7 @@ router.route('/')
         res.send(err);
         return err;
       }
-      res.json(crags);
+      res.render('index', { title: 'Crag List', list: crags });
     });
   })
 

@@ -15,7 +15,7 @@ router.route('/')
         res.send(err);
         return err;
       }
-      res.json(routes);
+      res.render('index', { title: 'Routes List', list: routes });
     });
   })
 

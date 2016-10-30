@@ -13,7 +13,7 @@ router.route('/')
         res.send(err);
         return err;
       }
-      res.json(countries);
+      res.render('index', { title: 'Country List', list: countries });
     });
   })
 

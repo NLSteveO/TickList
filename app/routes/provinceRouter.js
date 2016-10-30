@@ -14,7 +14,7 @@ router.route('/')
         res.send(err);
         return err;
       }
-      res.json(provinces);
+      res.render('index', { title: 'Province List', list: provinces });
     });
   })
 
