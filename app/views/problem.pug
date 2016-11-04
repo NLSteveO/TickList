@@ -1,0 +1,8 @@
+html
+  head
+    title= title
+  body
+    h1= title
+    ul
+      each problem in problems
+        li(class=problem.id)= problem.name

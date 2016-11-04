@@ -1,0 +1,13 @@
+html
+  head
+    title= title
+  body
+    h1= title
+    h4= 'Crags:'
+    ul
+      each community in communities
+        li(class=community.id)= community.name
+    h4= 'Gyms:'
+    ul
+      each community in communities
+        li(class=community.id)= community.name
