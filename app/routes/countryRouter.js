@@ -13,7 +13,7 @@ router.route('/')
         res.send(err);
         return err;
       }
-      res.render('index', { title: 'Country List', list: countries });
+      res.render('country', { title: 'Country List', countries: countries });
     });
   })
 

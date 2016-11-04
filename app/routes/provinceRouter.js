@@ -14,7 +14,7 @@ router.route('/')
         res.send(err);
         return err;
       }
-      res.render('index', { title: 'Province List', list: provinces });
+      res.render('province', { title: 'Province List', provinces: provinces });
     });
   })
 

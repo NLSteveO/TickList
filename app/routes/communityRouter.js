@@ -14,7 +14,7 @@ router.route('/')
         res.send(err);
         return err;
       }
-      res.render('index', { title: 'Community List', list: communities });
+      res.render('community', { title: 'Community List', communities: communities });
     });
   })
 

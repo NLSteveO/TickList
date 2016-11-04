@@ -14,7 +14,7 @@ router.route('/')
         res.send(err);
         return err;
       }
-      res.render('index', { title: 'Gym List', list: gyms });
+      res.render('gym', { title: 'Gym List', gyms: gyms });
     });
   })
 
