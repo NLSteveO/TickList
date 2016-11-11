@@ -3,6 +3,9 @@ html
     title= title
   body
     h1= title
+    h3
+      a(href='/country')= 'Back to countries'
     ul
       each province in provinces
-        li(class=province.id)= province.name
+        li(class=province.id)
+          a(href='/community/in/' + province.id)= province.name

@@ -2,10 +2,7 @@ html
   head
     title= title
   body
-    if message
-      h1= message
-    else
-      h1= title
-      ul
-        each item in list
-          li(class=item.id)= item.name
+    h1= title
+    ul
+      each item in list
+        li(class=item.id)= item.name

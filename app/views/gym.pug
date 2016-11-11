@@ -3,11 +3,18 @@ html
     title= title
   body
     h1= title
+    h3
+      if province
+        a(href='/community/in/' + province)= 'Back to communities'
+      else
+        a(href='/community')= 'Back to communities'
     h4= 'Routes:'
     ul
       each gym in gyms
-        li(class=gym.id)= gym.name
+        li(class=gym.id)
+          a(href='/route/inGym/' + gym.id)= gym.name
     h4= 'Problems:'
     ul
       each gym in gyms
-        li(class=gym.id)= gym.name
+        li(class=gym.id)
+          a(href='/problem/inGym/' + gym.id)= gym.name

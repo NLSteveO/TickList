@@ -5,4 +5,5 @@ html
     h1= title
     ul
       each country in countries
-        li(class=country.id)= country.name
+        li(class=country.id)
+          a(href='/province/in/' + country.id)= country.name

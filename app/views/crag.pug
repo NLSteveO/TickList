@@ -3,11 +3,18 @@ html
     title= title
   body
     h1= title
+    h3
+      if province
+        a(href='/community/in/' + province)= 'Back to communities'
+      else
+        a(href='/community')= 'Back to communities'
     h4= 'Routes:'
     ul
       each crag in crags
-        li(class=crag.id)= crag.name
+        li(class=crag.id)
+          a(href='/route/inCrag/' + crag.id)=  crag.name
     h4= 'Problems:'
     ul
       each crag in crags
-        li(class=crag.id)= crag.name
+        li(class=crag.id)
+          a(href='/problem/inCrag/' + crag.id)= crag.name

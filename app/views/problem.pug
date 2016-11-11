@@ -3,6 +3,15 @@ html
     title= title
   body
     h1= title
+    h3
+      if isGym
+        a(href='/gym/in/' + community)= 'Back to gyms'
+      else if isCrag
+        a(href='/crag/in/' + community)= 'Back to crags'
+      else
+        a(href='/crag')= 'Back to crags'
+        br
+        a(href='/gym')= 'Back to gyms'
     ul
       each problem in problems
         li(class=problem.id)= problem.name
