@@ -113,4 +113,56 @@ router.route('/:problem_id')
     });
   });
 
+router.route('/inCrag/:crag_id')
+
+  // Get problems in crag with this id (accessed at GET http://localhost:4000/problem/inCrag/:crag_id)
+  .get(function(req, res) {
+    ClimbingProblem.find({ location: {isGym: false, crag: req.params.crag_id} }, function(err, problems) {
+      if (err) {
+        res.send(err);
+        return err;
+      }
+
+      Crag.findById(req.params.crag_id, function(err, crag) {
+        if (err) {
+          res.send(err);
+          return err;
+        }
+
+        res.render('problem', {
+          title: 'List of problem in ' + crag.name,
+          problems: problems,
+          community: crag.community,
+          isCrag: true
+        });
+      });
+    });
+  });
+
+router.route('/inGym/:gym_id')
+
+  // Get problems in gym with this id (accessed at GET http://localhost:4000/problem/inGym/:gym_id)
+  .get(function(req, res) {
+    ClimbingProblem.find({ location: {isGym: true, gym: req.params.gym_id} }, function(err, problems) {
+      if (err) {
+        res.send(err);
+        return err;
+      }
+
+      Gym.findById(req.params.gym_id, function(err, gym) {
+        if (err) {
+          res.send(err);
+          return err;
+        }
+
+        res.render('problem', {
+          title: 'List of problem in ' + gym.name,
+          problems: problems,
+          community: gym.community,
+          isGym: true
+        });
+      });
+    });
+  });
+
 module.exports = router;

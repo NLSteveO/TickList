@@ -88,4 +88,29 @@ router.route('/:crag_id')
     });
   });
 
+router.route('/in/:community_id')
+
+  // Get crags in community with this id (accessed at GET http://localhost:4000/crag/in/:community_id)
+  .get(function(req, res) {
+    Crag.find({ community: req.params.community_id }, function(err, crags) {
+      if (err) {
+        res.send(err);
+        return err;
+      }
+
+      Community.findById(req.params.community_id, function(err, community) {
+        if (err) {
+          res.send(err);
+          return err;
+        }
+
+        res.render('crag', {
+          title: 'List of crags in ' + community.name,
+          crags: crags,
+          province: community.province
+        });
+      });
+    });
+  });
+
 module.exports = router;

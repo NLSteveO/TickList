@@ -87,4 +87,25 @@ router.route('/:province_id')
     });
   });
 
+router.route('/in/:country_id')
+
+  // Get provinces in country with this id (accessed at GET http://localhost:4000/province/in/:country_id)
+  .get(function(req, res) {
+    Province.find({ country: req.params.country_id }, function(err, provinces) {
+      if (err) {
+        res.send(err);
+        return err;
+      }
+
+      Country.findById(req.params.country_id, function(err, country) {
+        if (err) {
+          res.send(err);
+          return err;
+        }
+
+        res.render('province', { title: 'List of provinces in ' + country.name, provinces: provinces });
+      })
+    });
+  });
+
 module.exports = router;

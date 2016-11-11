@@ -113,4 +113,56 @@ router.route('/:route_id')
     });
   });
 
+router.route('/inCrag/:crag_id')
+
+  // Get routes in crag with this id (accessed at GET http://localhost:4000/route/inCrag/:crag_id)
+  .get(function(req, res) {
+    ClimbingRoute.find({ location: {isGym: false, crag: req.params.crag_id} }, function(err, routes) {
+      if (err) {
+        res.send(err);
+        return err;
+      }
+
+      Crag.findById(req.params.crag_id, function(err, crag) {
+        if (err) {
+          res.send(err);
+          return err;
+        }
+
+        res.render('route', {
+          title: 'List of routes in ' + crag.name,
+          routes: routes,
+          community: crag.community,
+          isCrag: true
+        });
+      });
+    });
+  });
+
+router.route('/inGym/:gym_id')
+
+  // Get routes in gym with this id (accessed at GET http://localhost:4000/route/inGym/:gym_id)
+  .get(function(req, res) {
+    ClimbingRoute.find({ location: {isGym: true, gym: req.params.gym_id} }, function(err, routes) {
+      if (err) {
+        res.send(err);
+        return err;
+      }
+
+      Gym.findById(req.params.gym_id, function(err, gym) {
+        if (err) {
+          res.send(err);
+          return err;
+        }
+
+        res.render('route', {
+          title: 'List of routes in ' + gym.name,
+          routes: routes,
+          community: gym.community,
+          isGym: true
+        });
+      });
+    });
+  });
+
 module.exports = router;

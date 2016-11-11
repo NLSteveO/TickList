@@ -88,4 +88,29 @@ router.route('/:community_id')
     });
   });
 
+router.route('/in/:province_id')
+
+  // Get communities in province with this id (accessed at GET http://localhost:4000/community/in/:province_id)
+  .get(function(req, res) {
+    Community.find({ province: req.params.province_id }, function(err, communities) {
+      if (err) {
+        res.send(err);
+        return err;
+      }
+
+      Province.findById(req.params.province_id, function(err, province) {
+        if (err) {
+          res.send(err);
+          return err;
+        }
+
+        res.render('community', {
+          title: 'List of communities in ' + province.name,
+          communities: communities,
+          country: province.country
+        });
+      });
+    });
+  });
+
 module.exports = router;

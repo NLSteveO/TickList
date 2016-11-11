@@ -88,4 +88,29 @@ router.route('/:gym_id')
     });
   });
 
+router.route('/in/:community_id')
+
+  // Get gyms in community with this id (accessed at GET http://localhost:4000/gym/in/:community_id)
+  .get(function(req, res) {
+    Gym.find({ community: req.params.community_id }, function(err, gyms) {
+      if (err) {
+        res.send(err);
+        return err;
+      }
+
+      Community.findById(req.params.community_id, function(err, community) {
+        if (err) {
+          res.send(err);
+          return err;
+        }
+
+        res.render('gym', {
+          title: 'List of gyms in ' + community.name,
+          gyms: gyms,
+          province: community.province,
+        });
+      });
+    });
+  });
+
 module.exports = router;
