@@ -29,7 +29,7 @@ I'm starting over, it's been 7 years since i worked on this project and i have l
 
 - [x]: Clear out the old to make room for the new.
 - [x]: Scaffold my new vite project.
-- [ ]: Add a landing page.
+- [x]: Add a landing page.
 - [ ]: Get it deploying to GitHub pages.
 - ...
 
