@@ -11,14 +11,14 @@ At the moment I am restarting this project so there is no usage. I will update t
 First clone the project from the repository or download the project zip, and then from the projects root directory run:
 
 ```
-$ npm install
+$ npm ci
 ```
 
 ## Run
 
-To run this node server just run:
+To run this locally:
 ```
-$ npm start
+$ npm run dev
 ```
 
 ## In this version (v2.0.0)
@@ -28,13 +28,17 @@ I'm starting over, it's been 7 years since i worked on this project and i have l
 ## Next steps
 
 - [x]: Clear out the old to make room for the new.
-- [ ]: Scaffold my new vite project.
+- [x]: Scaffold my new vite project.
+- [ ]: Add a landing page.
 - [ ]: Get it deploying to GitHub pages.
 - ...
 
 ## Technologies
 
-Will add them as i decide on them.
+- [Vite](https://vitejs.dev/)
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [SWC](https://swc.rs/)
 
 ## Acknowledgments
 
