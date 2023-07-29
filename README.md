@@ -30,7 +30,10 @@ I'm starting over, it's been 7 years since i worked on this project and i have l
 - [x]: Clear out the old to make room for the new.
 - [x]: Scaffold my new vite project.
 - [x]: Add a landing page.
-- [ ]: Get it deploying to GitHub pages.
+- [x]: Get it deploying to GitHub pages.
+- [ ]: Add page to show data
+- [ ]: Add page to add data
+- [ ]: Use local to save and retrieve data.
 - ...
 
 ## Technologies
