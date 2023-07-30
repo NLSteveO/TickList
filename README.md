@@ -4,52 +4,48 @@ This is a web application to act as a online tick list for rock climbers where t
 
 ## Usage
 
-At the moment this API is designed to be used with POSTMAN to make requests and get responses from the API.
+At the moment I am restarting this project so there is no usage. I will update this section as I get the project going again.
 
 ## Install
 
 First clone the project from the repository or download the project zip, and then from the projects root directory run:
 
 ```
-$ npm install
+$ npm ci
 ```
 
 ## Run
 
-To run this node server just run:
+To run this locally:
 ```
-$ npm start
+$ npm run dev
 ```
 
-## In this version (v1.0.0)
+## In this version (v2.0.0)
 
-I have taken what I learned from the tutorial on Scotch.io and added the models I want for this project and set up routes to access the data. Each route can GET all, GET by id, create(POST), update(PUT) and DELETE the data from the models I have added.
+I'm starting over, it's been 7 years since i worked on this project and i have learned a lot since then. I plan on using some newer tools and libraries to build this project.
 
-## Plans for the next iteration
+## Next steps
 
-In the next iteration of this project I plan to:
-* view data from the database in the browser
-* add data to the database in the browser
-* edit data in the database in the browser
+- [x]: Clear out the old to make room for the new.
+- [x]: Scaffold my new vite project.
+- [x]: Add a landing page.
+- [x]: Get it deploying to GitHub pages.
+- [ ]: Add page to show data
+- [ ]: Add page to add data
+- [ ]: Use local to save and retrieve data.
+- ...
 
 ## Technologies
 
-- Node JS
-- Express JS
-- MongoDB
-- Mongoose JS
+- [Vite](https://vitejs.dev/)
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [SWC](https://swc.rs/)
 
 ## Acknowledgments
 
-TickList was inspired by my love of rock climbing and although there already exists tick lists for rock climbing, I wanted to create my own to build a web app project based on something I love and will probably even use once it is built. That being said I would like to acknowledge [Scotch.io](https://scotch.io) for their tutorial on [building a RESTful API with Node and Express 4](https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4) as i chose this for my starting point and built up from there.
-
-## See Also
-
-- [Scotch.io](https://scotch.io)
-- [Express JS](https://www.expressjs.com)
-- [Node JS](https://www.nodejs.org)
-- [mLab](https://www.mlab.com)
-- [Stack Overflow](https://www.stackoverflow.com)
+TickList was inspired by my love of rock climbing and although there already exists tick lists for rock climbing, I wanted to create my own to build a web app project based on something I love and will probably even use once it is built.
 
 ## License
 
