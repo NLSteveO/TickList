@@ -1,9 +1,9 @@
 import { describe, expect, it } from "vitest";
-import App from '../App';
+import Home from '../../pages/Home';
 
-describe('App', () => {
+describe('Home', () => {
   it('should render the page correctly', () => {
-    const result = App();
+    const result = Home();
     expect(result).toMatchSnapshot();
   });
 });
