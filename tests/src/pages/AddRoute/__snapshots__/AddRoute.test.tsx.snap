@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`AddRoute > should render the page correctly 1`] = `
+<React.Fragment>
+  <h1>
+    HI!
+  </h1>
+</React.Fragment>
+`;

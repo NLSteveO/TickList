@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import Home from './pages/Home/Home';
+import { AddRoute, Home } from './pages';
 
 const PAGE_INDEX = 4;
 
 const pageComponents: Record<string, React.ComponentType> = {
+  addRoute: AddRoute,
   home: Home
 };
 
