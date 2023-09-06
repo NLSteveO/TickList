@@ -1,9 +1,55 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`AddRoute > should render the page correctly 1`] = `
+exports[`AddRoute > Snapshots > should render the page correctly 1`] = `
 <React.Fragment>
   <h1>
-    HI!
+    Add Route
   </h1>
+  <label>
+    Gym: 
+    <input
+      onChange={[Function]}
+      value=""
+    />
+  </label>
+  <br />
+  <label>
+    Wall: 
+    <input
+      onChange={[Function]}
+      value=""
+    />
+  </label>
+  <br />
+  <label>
+    Route Color(Tape or Holds): 
+    <input
+      onChange={[Function]}
+      value=""
+    />
+  </label>
+  <br />
+  <label>
+    Grade: 
+    <input
+      onChange={[Function]}
+      value=""
+    />
+  </label>
+  <br />
+  <label>
+    Date Set: 
+    <input
+      onChange={[Function]}
+      value=""
+    />
+  </label>
+  <br />
+  <br />
+  <button
+    onClick={[Function]}
+  >
+    Submit
+  </button>
 </React.Fragment>
 `;
