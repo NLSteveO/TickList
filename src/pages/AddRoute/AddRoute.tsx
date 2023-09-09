@@ -40,6 +40,17 @@ function AddRoute() {
     return setDateSet(event.target.value);
   };
 
+  const storeRoute = (route: Route) => {
+    const routes = localStorage.getItem('routes');
+    if (routes) {
+      const parsedRoutes = JSON.parse(routes);
+      parsedRoutes.push(route);
+      localStorage.setItem('routes', JSON.stringify(parsedRoutes));
+    } else {
+      localStorage.setItem('routes', JSON.stringify([route]));
+    }
+  }
+
   const onClick = () => {
     const Route: Route = {
       id: createRouteId(),
@@ -49,7 +60,7 @@ function AddRoute() {
       grade,
       dateSet
     };
-    console.log(JSON.stringify(Route));
+    storeRoute(Route);
   };
 
   return (
