@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react-swc'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/TickList/',
+  base: '/TickList',
   plugins: [react()],
   server: {
     watch: {
@@ -13,6 +13,7 @@ export default defineConfig({
   test: {
     coverage: {
       reporter: ['text', 'json', 'html']
-    }
+    },
+    environment: 'jsdom'
   }
 })
