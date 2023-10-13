@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import Home from './pages/Home';
-import './App.css';
+import Home from './pages/Home/Home';
 
 const PAGE_INDEX = 4;
 
