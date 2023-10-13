@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { renderHook } from '@testing-library/react';
-import App from '../App';
+import App from '../src/App';
 
 describe('App', () => {
   it('should render the Home page correctly', () => {
