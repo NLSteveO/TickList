@@ -1,5 +1,0 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
-
-exports[`App > should render the Home page correctly 1`] = `<Home />`;
-
-exports[`App > should render the Home page correctly when home is used in the URL 1`] = `<Home />`;
