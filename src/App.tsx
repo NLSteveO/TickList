@@ -1,16 +1,15 @@
 import { useState } from 'react';
-import Home from './pages/Home';
-import './App.css';
+import Home from './pages/Home/Home';
 
 const PAGE_INDEX = 4;
 
+const pageComponents: Record<string, React.ComponentType> = {
+  home: Home
+};
+
 const renderPage = (page: string) => {
-  switch (page) {
-    case 'home':
-      return <Home />;
-    default:
-      return <Home />;
-  }
+  const PageComponent = pageComponents[page] || Home;
+  return <PageComponent />;
 };
 
 const resetURL = () => {
