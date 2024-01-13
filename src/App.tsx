@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { AddRoute, Home } from './pages';
 
 const PAGE_INDEX = 4;
 
 const pageComponents: Record<string, React.ComponentType> = {
-  addRoute: AddRoute,
-  home: Home
+  AddRoute: AddRoute,
+  Home: Home
 };
 
 const renderPage = (page: string) => {
@@ -13,17 +13,17 @@ const renderPage = (page: string) => {
   return <PageComponent />;
 };
 
-const resetURL = () => {
-  window.history.pushState({}, '', '/TickList');
-  const event = new Event('popstate');
-  window.dispatchEvent(event);
-}
+const resetURL = () => window.history.pushState({}, '', '/TickList');
 
 function App() {
-  const splitURL = window.location.href.split('/');
-  if (splitURL[PAGE_INDEX]) resetURL();
+  const [page] = useState(() => {
+    const splitURL = window.location.href.split('/');
+    return splitURL[PAGE_INDEX] || 'Home';
+  });
 
-  const [page] = useState(splitURL[PAGE_INDEX]);
+  useEffect(() => {
+    resetURL();
+  }, [page]);
 
   return renderPage(page);
 }
