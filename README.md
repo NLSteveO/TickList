@@ -1,5 +1,9 @@
 # TickList
 
+[![Build check for PRs](https://github.com/NLSteveO/TickList/actions/workflows/build.yml/badge.svg)](https://github.com/NLSteveO/TickList/actions/workflows/build.yml)
+[![Deploy static content to Pages](https://github.com/NLSteveO/TickList/actions/workflows/deploy.yml/badge.svg)](https://github.com/NLSteveO/TickList/actions/workflows/deploy.yml)
+[![Coverage Status](https://coveralls.io/repos/github/NLSteveO/TickList/badge.svg?branch=main)](https://coveralls.io/github/NLSteveO/TickList?branch=main)
+
 This is a web application to act as a online tick list for rock climbers where they can add and edit rock climbing routes and problems from within the application.
 
 ## Usage
