@@ -22,5 +22,7 @@ jobs:
         run: npm run lint
       - name: Test
         run: npm run coverage
+      - name: Coveralls
+        uses: coverallsapp/github-action@v2
       - name: Build
         run: npm run build
