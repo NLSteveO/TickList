@@ -40,7 +40,7 @@ function AddRoute() {
     return setDateSet(event.target.value);
   };
 
-  const storeRoute = (route: Route) => {
+  const storeRoute = async (route: Route) => {
     const routes = localStorage.getItem('routes');
     if (routes) {
       const parsedRoutes = JSON.parse(routes);
@@ -51,7 +51,15 @@ function AddRoute() {
     }
   }
 
-  const onClick = () => {
+  const clearForm = () => {
+    setGym('');
+    setWall('');
+    setColor('');
+    setGrade('');
+    setDateSet('');
+  }
+
+  const onClick = async () => {
     const Route: Route = {
       id: createRouteId(),
       gym,
@@ -60,35 +68,36 @@ function AddRoute() {
       grade,
       dateSet
     };
-    storeRoute(Route);
+    await storeRoute(Route);
+    clearForm();
   };
 
   return (
-    <>
+    <form>
       <h1>Add Route</h1>
-      <label>
-        Gym: <input value={gym} onChange={gymOnChange} />
+      <label htmlFor='gym'>
+        Gym: <input id='gym' value={gym} onChange={gymOnChange} />
       </label>
       <br />
-      <label>
-        Wall: <input value={wall} onChange={wallOnChange} />
+      <label htmlFor='wall'>
+        Wall: <input id='wall' value={wall} onChange={wallOnChange} />
       </label>
       <br />
-      <label>
-        Route Color(Tape or Holds): <input value={color} onChange={colorOnChange} />
+      <label htmlFor='routeColor'>
+        Route Color(Tape or Holds): <input id='routeColor' value={color} onChange={colorOnChange} />
       </label>
       <br />
-      <label>
-        Grade: <input value={grade} onChange={gradeOnChange} />
+      <label htmlFor='grade'>
+        Grade: <input id='grade' value={grade} onChange={gradeOnChange} />
       </label>
       <br />
-      <label>
-        Date Set: <input value={dateSet} onChange={dateSetOnChange} />
+      <label htmlFor='dateSet'>
+        Date Set: <input id='dateSet' value={dateSet} onChange={dateSetOnChange} />
       </label>
       <br />
       <br />
-      <button onClick={onClick}>Submit</button>
-    </>
+      <button type='button' onClick={onClick}>Submit</button>
+    </form>
   );
 }
 
