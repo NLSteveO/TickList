@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
+import { useForm, SubmitHandler } from 'react-hook-form';
 
 interface Route {
   id: string;
@@ -10,35 +11,17 @@ interface Route {
 }
 
 function AddRoute() {
-  const [gym, setGym] = useState('');
-  const [wall, setWall] = useState('');
-  const [color, setColor] = useState('');
-  const [grade, setGrade] = useState('');
-  const [dateSet, setDateSet] = useState('');
+  const { register, reset, formState: { errors, isSubmitSuccessful }, handleSubmit } = useForm<Route>();
+
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset();
+    }
+  }, [isSubmitSuccessful, reset]);
 
   const createRouteId = () => {
     return Math.random().toString().substr(2, 9);
   }
-
-  const gymOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    return setGym(event.target.value);
-  };
-
-  const wallOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    return setWall(event.target.value);
-  };
-
-  const colorOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    return setColor(event.target.value);
-  };
-
-  const gradeOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    return setGrade(event.target.value);
-  };
-
-  const dateSetOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    return setDateSet(event.target.value);
-  };
 
   const storeRoute = async (route: Route) => {
     const routes = localStorage.getItem('routes');
@@ -51,52 +34,40 @@ function AddRoute() {
     }
   }
 
-  const clearForm = () => {
-    setGym('');
-    setWall('');
-    setColor('');
-    setGrade('');
-    setDateSet('');
-  }
-
-  const onClick = async () => {
-    const Route: Route = {
-      id: createRouteId(),
-      gym,
-      wall,
-      color,
-      grade,
-      dateSet
-    };
-    await storeRoute(Route);
-    clearForm();
+  const onSubmit: SubmitHandler<Route> = async (data) => {
+    data.id = createRouteId();
+    await storeRoute(data);
   };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <h1>Add Route</h1>
       <label htmlFor='gym'>
-        Gym: <input id='gym' value={gym} onChange={gymOnChange} />
+        Gym: <input id='gym' {...register('gym', {required: 'Gym is required'})} placeholder='The Cove' aria-invalid={errors.gym ? 'true' : 'false'} />
       </label>
+      {errors.gym && <span>{errors.gym.message}</span>}
       <br />
       <label htmlFor='wall'>
-        Wall: <input id='wall' value={wall} onChange={wallOnChange} />
+        Wall: <input id='wall' {...register('wall', {required: 'Wall is required'})} aria-invalid={errors.wall ? 'true' : 'false'} />
       </label>
+      {errors.wall && <span>{errors.wall.message}</span>}
       <br />
       <label htmlFor='routeColor'>
-        Route Color(Tape or Holds): <input id='routeColor' value={color} onChange={colorOnChange} />
+        Route Color(Tape or Holds): <input id='routeColor' {...register('color', {required: 'Color is required'})} aria-invalid={errors.color ? 'true' : 'false'} />
       </label>
+      {errors.color && <span>{errors.color.message}</span>}
       <br />
       <label htmlFor='grade'>
-        Grade: <input id='grade' value={grade} onChange={gradeOnChange} />
+        Grade: <input id='grade' {...register('grade', {required: 'Grade is required'})} aria-invalid={errors.grade ? 'true' : 'false'} />
       </label>
+      {errors.grade && <span>{errors.grade.message}</span>}
       <br />
       <label htmlFor='dateSet'>
-        Date Set: <input id='dateSet' value={dateSet} onChange={dateSetOnChange} />
+        Date Set: <input id='dateSet' {...register('dateSet')} />
       </label>
       <br />
       <br />
-      <button type='button' onClick={onClick}>Submit</button>
+      <button type='submit'>Submit</button>
     </form>
   );
 }
