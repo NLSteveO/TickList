@@ -35,8 +35,11 @@ function AddRoute() {
   }
 
   const onSubmit: SubmitHandler<Route> = async (data) => {
+    console.log('data', data);
     data.id = createRouteId();
+    console.log('data.id', data.id);
     await storeRoute(data);
+    console.log('stored', localStorage.getItem('routes'));
   };
 
   return (

@@ -1,55 +1,82 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`AddRoute > Snapshots > should render the page correctly 1`] = `
-<React.Fragment>
+exports[`AddRoute > Snapshots > should render a blank page correctly 1`] = `
+<form
+  onSubmit={[Function]}
+>
   <h1>
     Add Route
   </h1>
-  <label>
+  <label
+    htmlFor="gym"
+  >
     Gym: 
     <input
+      aria-invalid="false"
+      id="gym"
+      name="gym"
+      onBlur={[Function]}
       onChange={[Function]}
-      value=""
+      placeholder="The Cove"
     />
   </label>
   <br />
-  <label>
+  <label
+    htmlFor="wall"
+  >
     Wall: 
     <input
+      aria-invalid="false"
+      id="wall"
+      name="wall"
+      onBlur={[Function]}
       onChange={[Function]}
-      value=""
     />
   </label>
   <br />
-  <label>
+  <label
+    htmlFor="routeColor"
+  >
     Route Color(Tape or Holds): 
     <input
+      aria-invalid="false"
+      id="routeColor"
+      name="color"
+      onBlur={[Function]}
       onChange={[Function]}
-      value=""
     />
   </label>
   <br />
-  <label>
+  <label
+    htmlFor="grade"
+  >
     Grade: 
     <input
+      aria-invalid="false"
+      id="grade"
+      name="grade"
+      onBlur={[Function]}
       onChange={[Function]}
-      value=""
     />
   </label>
   <br />
-  <label>
+  <label
+    htmlFor="dateSet"
+  >
     Date Set: 
     <input
+      id="dateSet"
+      name="dateSet"
+      onBlur={[Function]}
       onChange={[Function]}
-      value=""
     />
   </label>
   <br />
   <br />
   <button
-    onClick={[Function]}
+    type="submit"
   >
     Submit
   </button>
-</React.Fragment>
+</form>
 `;
