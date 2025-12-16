@@ -33,6 +33,7 @@ export default defineConfig({
         'src/main.tsx'
       ]
     },
-    environment: 'jsdom'
+    environment: 'jsdom',
+    setupFiles: 'src/setup.ts'
   }
 })

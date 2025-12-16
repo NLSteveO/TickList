@@ -1,0 +1,82 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`AddRoute > Snapshots > should render a blank page correctly 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <h1>
+    Add Route
+  </h1>
+  <label
+    htmlFor="gym"
+  >
+    Gym: 
+    <input
+      aria-invalid="false"
+      id="gym"
+      name="gym"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="The Cove"
+    />
+  </label>
+  <br />
+  <label
+    htmlFor="wall"
+  >
+    Wall: 
+    <input
+      aria-invalid="false"
+      id="wall"
+      name="wall"
+      onBlur={[Function]}
+      onChange={[Function]}
+    />
+  </label>
+  <br />
+  <label
+    htmlFor="routeColor"
+  >
+    Route Color(Tape or Holds): 
+    <input
+      aria-invalid="false"
+      id="routeColor"
+      name="color"
+      onBlur={[Function]}
+      onChange={[Function]}
+    />
+  </label>
+  <br />
+  <label
+    htmlFor="grade"
+  >
+    Grade: 
+    <input
+      aria-invalid="false"
+      id="grade"
+      name="grade"
+      onBlur={[Function]}
+      onChange={[Function]}
+    />
+  </label>
+  <br />
+  <label
+    htmlFor="dateSet"
+  >
+    Date Set: 
+    <input
+      id="dateSet"
+      name="dateSet"
+      onBlur={[Function]}
+      onChange={[Function]}
+    />
+  </label>
+  <br />
+  <br />
+  <button
+    type="submit"
+  >
+    Submit
+  </button>
+</form>
+`;
